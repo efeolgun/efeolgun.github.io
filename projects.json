@@ -1,0 +1,304 @@
+{
+  "person": {
+    "name": "Efe Olgun",
+    "headline": "Electrical & Electronics Engineering, Boğaziçi University",
+    "summary": "Senior EE student working on wireless networks, signal processing and machine learning. Spring 2026 Erasmus+ exchange at CentraleSupélec. Expected graduation: January 2027.",
+    "links": [
+      {"label": "GitHub", "url": "https://github.com/efeolgun"},
+      {"label": "LinkedIn", "url": "https://www.linkedin.com/in/efe-olgun"}
+    ]
+  },
+  "files_base": "https://efeolgun.github.io/coursework/",
+  "code_base": "https://github.com/efeolgun/coursework/tree/main/",
+  "areas": {
+    "wireless": "Wireless & networks",
+    "signal": "Signal processing",
+    "ml": "Machine learning",
+    "hardware": "Digital & hardware",
+    "other": "Other"
+  },
+  "projects": [
+    {
+      "id": "ee492-dirgnn-mro",
+      "featured": true,
+      "status": "in progress",
+      "title": "Directed GNNs for Mobility Robustness Optimization",
+      "course": "EE 492 Senior Design Project",
+      "term": "Fall 2026",
+      "school": "Boğaziçi University",
+      "team": "Individual project, principal investigator Prof. Mutlu Koca",
+      "areas": ["wireless", "ml"],
+      "summary": "A handover moves a phone from one cell to another, and each cell keeps a Cell Individual Offset (CIO) for each neighbor. This project tunes that directed CIO matrix in a closed loop: a simulator labels every handover as normal, too late, too early or ping-pong, and a directed graph neural network learns the failure risk of each cell pair. The first half rebuilt the simulator, channel and failure labels on the 3GPP documents. The rebuilt simulator reproduces the full MRO trade-off without tuning. GNN training runs in the second half of the semester.",
+      "links": []
+    },
+    {
+      "id": "cs-s8-dirgnn-cio",
+      "featured": true,
+      "title": "Directed GNNs for Cell Individual Offset tuning",
+      "course": "S8 Project",
+      "term": "Spring 2026",
+      "school": "CentraleSupélec",
+      "team": "Team of five (A. Seigle, E. Olgun, N. Tüysüz, A. Ammour, A. Choquel)",
+      "areas": ["wireless", "ml"],
+      "summary": "An end-to-end loop that simulates users moving between base stations (Gymnasium mobile-env), extracts directed handover graphs, trains a directed GNN to predict risky handover edges, and updates the CIO matrix. The final version added independent failure labels, continuous severity metrics, weighted losses and numerical sanitization. In the large environment it modifies 48 of 156 directed links. This project became the starting point of my senior design project.",
+      "folder": "2026-spring-CS-S8-dirgnn-cio",
+      "links": [
+        {"label": "Report", "file": "report.pdf"},
+        {"label": "Team code", "url": "https://github.com/adrienseigle/DirGNN-for-CIO-finetunning"}
+      ]
+    },
+    {
+      "id": "cs-st7-llm-telecom",
+      "featured": true,
+      "title": "LLMs for Telecoms: forecasting antenna traffic",
+      "course": "ST7 Smart Cities project",
+      "term": "Spring 2026",
+      "school": "CentraleSupélec",
+      "team": "Team of seven",
+      "areas": ["wireless", "ml"],
+      "summary": "Weekly traffic forecasting for 86 antenna sectors in a small French city, with attention to peak demand rather than the average. The pipeline adds stochastic data augmentation inspired by Interrupted Poisson Processes and compares the Chronos-2 foundation model, SARIMA and an LSTM trained with a quantile (pinball) loss. The Chronos-2 baseline reached an MAE of 4.13 Mbps.",
+      "folder": "2026-spring-CS-ST7-llm-for-telecoms",
+      "links": [
+        {"label": "Report", "file": "report.pdf"},
+        {"label": "Slides", "file": "slides.pdf"}
+      ]
+    },
+    {
+      "id": "cs-predictive-maintenance",
+      "title": "Robot predictive maintenance (Kaggle challenge)",
+      "course": "Maintenance and Industry 4.0",
+      "term": "Spring 2026",
+      "school": "CentraleSupélec",
+      "team": "Individual",
+      "areas": ["ml", "signal"],
+      "summary": "Fault detection on a six-motor robot arm from temperature and load telemetry. The detector models the expected temperature of each motor, watches the residual, and uses hysteresis to avoid flickering alarms.",
+      "links": [
+        {"label": "Code", "url": "https://github.com/efeolgun/robot-predictive-maintenance"}
+      ]
+    },
+    {
+      "id": "cs-room-acoustics",
+      "title": "Measuring the acoustics of a reverberant room",
+      "course": "Audio Signal Processing",
+      "term": "Spring 2026",
+      "school": "CentraleSupélec",
+      "team": "Team of three",
+      "areas": ["signal"],
+      "summary": "Room impulse responses measured with a loudspeaker and a microphone in a corridor and a staircase, estimated by frequency-domain deconvolution. RT60, EDT, C50, C80 and the direct-to-reverberant ratio come from Schroeder integration. A synthetic impulse response with a known RT60 validates the estimator.",
+      "folder": "2026-spring-CS-room-acoustics",
+      "links": [
+        {"label": "Slides", "file": "slides.pdf"},
+        {"label": "Code", "code": true}
+      ]
+    },
+    {
+      "id": "ee475-film-grain",
+      "featured": true,
+      "title": "Film grain across eras: spectral analysis and restoration",
+      "course": "EE 475 Introduction to Image Processing",
+      "term": "Fall 2025",
+      "school": "Boğaziçi University",
+      "team": "Individual",
+      "areas": ["signal"],
+      "image": "figures/analysis_phantom.jpg",
+      "summary": "Noise in a 1925 silent film, a 1963 film and a 1984 VHS-era film has different physics: impulse dirt and flicker, Gaussian grain, and tape hiss with chroma noise. The project measures the power spectral density of each and builds era-specific restoration pipelines with temporal filtering and color-space decomposition, because textbook spatial filters failed on real footage.",
+      "folder": "2025-fall-EE475-film-grain",
+      "links": [
+        {"label": "Report", "file": "report.pdf"},
+        {"label": "Slides", "file": "slides.pdf"},
+        {"label": "Code", "code": true}
+      ]
+    },
+    {
+      "id": "ee473-autotune",
+      "title": "Music pitch detection and auto-tuning",
+      "course": "EE 473 Introduction to Digital Signal Processing",
+      "term": "Fall 2025",
+      "school": "Boğaziçi University",
+      "team": "With Mert Karahan. My part: autocorrelation with center clipping, and the user interface.",
+      "areas": ["signal"],
+      "summary": "A closed-loop auto-tuner for monophonic vocals. It detects the fundamental frequency frame by frame with autocorrelation and with the cepstrum, maps it to the nearest note, and shifts the pitch with a phase vocoder. Autocorrelation with center clipping gave the most stable results on amateur recordings.",
+      "folder": "2025-fall-EE473-pitch-detection-autotune",
+      "links": [
+        {"label": "Report", "file": "report.pdf"},
+        {"label": "Slides", "file": "slides.pdf"},
+        {"label": "Code", "code": true}
+      ]
+    },
+    {
+      "id": "ee372-qpsk",
+      "title": "QPSK detection with unequal priors: MD, ML and MAP",
+      "course": "EE 372 Random Signals",
+      "term": "Spring 2025",
+      "school": "Boğaziçi University",
+      "team": "Individual",
+      "areas": ["wireless", "signal"],
+      "summary": "A Monte Carlo simulation of 100,000 QPSK symbols over an AWGN channel, with unequal symbol priors. Minimum-distance, maximum-likelihood and maximum a posteriori detectors are compared by error against SNR, for equal and unequal noise variances.",
+      "folder": "2025-spring-EE372-qpsk-detection",
+      "links": [
+        {"label": "Report", "file": "report.pdf"},
+        {"label": "Code", "code": true}
+      ]
+    },
+    {
+      "id": "ee342-gauss",
+      "title": "Gaussian elimination: my code against AI-generated code",
+      "course": "EE 342 Numerical Methods for EE",
+      "term": "Spring 2025",
+      "school": "Boğaziçi University",
+      "team": "Individual",
+      "areas": ["other"],
+      "summary": "Gaussian elimination with partial pivoting in C++, written twice as the assignment asked: once by hand and once with an AI assistant. The report compares the two in structure, error handling and results.",
+      "folder": "2025-spring-EE342-gaussian-elimination",
+      "links": [
+        {"label": "Report", "file": "report.pdf"},
+        {"label": "Code", "code": true}
+      ]
+    },
+    {
+      "id": "ee304-space-string",
+      "title": "The Space String: electromagnetic sound generation in space",
+      "course": "EE 304 Energy Conversion",
+      "term": "Spring 2025",
+      "school": "Boğaziçi University",
+      "team": "Individual",
+      "areas": ["other"],
+      "summary": "A design study for a device that lets an astronaut make basic sound signals with a magnetized steel wire and send them wirelessly to the ISS, using only a given parts list. It applies electromagnetic induction and electromechanical energy conversion.",
+      "folder": "2025-spring-EE304-space-string",
+      "links": [
+        {"label": "Report", "file": "report.pdf"}
+      ]
+    },
+    {
+      "id": "ee371-am",
+      "title": "AM modulation and demodulation in Python",
+      "course": "EE 371 Communication Engineering",
+      "term": "Fall 2024",
+      "school": "Boğaziçi University",
+      "team": "Individual",
+      "areas": ["wireless", "signal"],
+      "summary": "A 300 Hz tone is AM-modulated on a 1 MHz carrier, passed through an AWGN channel and demodulated. The second part recovers a voice message from a given received signal.",
+      "folder": "2024-fall-EE371-am-modulation",
+      "links": [
+        {"label": "Report", "file": "report.pdf"},
+        {"label": "Code", "code": true}
+      ]
+    },
+    {
+      "id": "ee244-vhdl",
+      "title": "VHDL labs on a Spartan-6 FPGA, up to a VGA driver",
+      "course": "EE 244 Digital System Design",
+      "term": "Spring 2024",
+      "school": "Boğaziçi University",
+      "team": "Lab work",
+      "areas": ["hardware"],
+      "summary": "Lab designs in VHDL with Xilinx ISE: a seven-segment display driver, debouncers, counters and a shift register, and a VGA driver with sync and color generators.",
+      "folder": "2024-spring-EE244-vhdl-labs",
+      "links": [
+        {"label": "Code", "code": true}
+      ]
+    },
+    {
+      "id": "ee243-gray-bcd",
+      "title": "Gray code to BCD on three 7-segment displays",
+      "course": "EE 243 Digital Systems",
+      "term": "Fall 2023",
+      "school": "Boğaziçi University",
+      "team": "Individual",
+      "areas": ["hardware"],
+      "summary": "A combinational circuit that converts a 6-bit Gray code input to binary, then to two BCD digits with the double-dabble algorithm, and drives 7-segment displays. Designed from Karnaugh maps and simulated in Xilinx ISE 14.7.",
+      "folder": "2023-fall-EE243-gray-to-bcd",
+      "links": [
+        {"label": "Report", "file": "report.pdf"},
+        {"label": "Schematics", "code": true}
+      ]
+    },
+    {
+      "id": "ee101-pcb",
+      "title": "First PCB: design, etching and soldering",
+      "course": "EE 101 Orientation to EE",
+      "term": "Spring 2023",
+      "school": "Boğaziçi University",
+      "team": "With Yaman Yaltır",
+      "areas": ["hardware"],
+      "summary": "A diode-based power circuit with an LED indicator, drawn and simulated in OrCAD, then etched on a PCB and soldered by hand. The measured output was 4.9 V against 4.7 V in theory.",
+      "folder": "2023-spring-EE101-pcb-project",
+      "links": [
+        {"label": "Report", "file": "report.pdf"},
+        {"label": "Schematic", "file": "schematic.pdf"}
+      ]
+    },
+    {
+      "id": "ee573-pattern",
+      "status": "in progress",
+      "title": "Pattern recognition projects: PCA, Gaussian mixtures, Parzen windows",
+      "course": "EE 573 Pattern Recognition (graduate)",
+      "term": "Fall 2026",
+      "school": "Boğaziçi University",
+      "team": "Individual",
+      "areas": ["ml"],
+      "summary": "Three projects on ViT descriptors of the Washington RGB-D object dataset: PCA and approximation error, Gaussian mixture classifiers trained with EM, and Parzen-window density estimation. Reports and code go online after grades are final.",
+      "links": []
+    },
+    {
+      "id": "ee583-deepjscc",
+      "status": "in progress",
+      "title": "SNR-adaptive deep joint source-channel coding",
+      "course": "EE 583 Deep Learning (graduate)",
+      "term": "Fall 2026",
+      "school": "Boğaziçi University",
+      "team": "Individual",
+      "areas": ["wireless", "ml"],
+      "summary": "A neural encoder and decoder that map images straight to channel symbols, so quality degrades gracefully with SNR instead of the cliff effect of separate compression and channel coding. The project makes one model adapt to the channel SNR.",
+      "links": []
+    }
+  ],
+  "experience": [
+    {
+      "org": "TÜBİTAK UME (National Metrology Institute)",
+      "role": "Research Intern, Voltage Laboratory",
+      "term": "Aug 2025 to Sep 2025",
+      "summary": "Worked on the Josephson arbitrary waveform synthesizer (JAWS) and FPGA efforts. Wrote MATLAB code that compares 2nd-order and 8th-order delta-sigma modulators by their in-band noise floor."
+    },
+    {
+      "org": "Turkcell",
+      "role": "Radio Network Planning Intern, Europe West",
+      "term": "Jul 2025 to Aug 2025",
+      "summary": "Trainings on network technologies and the 5G air interface. Studied KPI analysis, coverage and capacity analysis, and indoor planning, and wrote a Python tool that turns KPI and complaint data into a report."
+    },
+    {
+      "org": "ArVis Technology",
+      "role": "AI R&D Intern",
+      "term": "Jul 2024 to Aug 2024",
+      "summary": "Team of five on multimodal deepfake detection. I built the micro-expression module: face crop, optical flow and a ResNet-18 classifier in a live desktop app. 3rd of 19 projects at Demo Day.",
+      "folder": "internships/2024-summer-arvis-deepfake-microexpression",
+      "links": [{"label": "Code and write-up", "code": true}]
+    }
+  ],
+  "earlier": [
+    {
+      "title": "Superhydrophobic sponge for removing microplastics from water",
+      "term": "2019 to 2020",
+      "school": "Istanbul Fuat Sezgin Science and Art Center (BİLSEM)",
+      "team": "With İpek Pervaz, advisor İsmail Ateş",
+      "awards": "TÜBİTAK 2204 High School Research Projects: 1st place in Chemistry, Istanbul-Asia region (March 2020). Encouragement Award in Chemistry, 51st national final (July 2020).",
+      "summary": "Melamine and PVA sponges treated with octadecylamine and activated carbon to make them superhydrophobic and oil-attracting. Microplastics stick to oil, so the sponge can collect them from water. A controlled experiment found that melamine with octadecylamine absorbed microplastics best.",
+      "image": "figures/karisim.png",
+      "folder": "2020-highschool-tubitak-superhydrophobic-sponge",
+      "links": [{"label": "Project summary (Turkish)", "file": "project-summary-tr.pdf"}]
+    }
+  ],
+  "terms": [
+    {"term": "Fall 2026", "where": "Boğaziçi University, 9th semester", "courses": ["EE 492 Senior Design Project", "EE 573 Pattern Recognition", "EE 583 Special Topics: Deep Learning", "ESC 305 Global Climate Change"]},
+    {"term": "Spring 2026", "where": "CentraleSupélec, Erasmus+ exchange (Feb to Jul 2026)", "courses": ["ST7 Smart Cities (with project)", "S8 Project", "Optimization", "Artificial Intelligence", "Maintenance and Industry 4.0", "Managing Disruptive Technological Innovation", "Audio Signal Processing", "French as a Foreign Language"]},
+    {"term": "Fall 2025", "where": "Boğaziçi University", "courses": ["EE 473 Introduction to Digital Signal Processing", "EE 475 Introduction to Image Processing", "EE 477 Introduction to Digital Communications", "PHYS 202 Physics IV"]},
+    {"term": "Summer 2025", "where": "Internships: Turkcell, TÜBİTAK UME", "courses": []},
+    {"term": "Spring 2025", "where": "Boğaziçi University", "courses": ["EE 304 Energy Conversion", "EE 342 Numerical Methods for EE", "EE 372 Random Signals", "EE 450 Control Technology and Design", "HTR 312 History of the Turkish Republic II"]},
+    {"term": "Fall 2024", "where": "Boğaziçi University", "courses": ["EE 333 Electronics I", "EE 335 Electronics Laboratory I", "EE 351 System Dynamics and Control", "EE 363 Electromagnetic Field Theory", "EE 371 Communication Engineering", "HTR 311 History of the Turkish Republic I"]},
+    {"term": "Summer 2024", "where": "Internship: ArVis Technology", "courses": []},
+    {"term": "Spring 2024", "where": "Boğaziçi University", "courses": ["EE 214 Probability for EE", "EE 232 Semiconductors and Electronic Devices", "EE 244 Digital System Design", "EE 272 Signals and Systems II", "TK 222 Turkish II"]},
+    {"term": "Fall 2023", "where": "Boğaziçi University", "courses": ["EE 201 Electrical Circuits I", "EE 243 Digital Systems", "EE 271 Signals and Systems I", "MATH 202 Differential Equations", "PHYS 201 Physics III", "TK 221 Turkish I"]},
+    {"term": "Spring 2023", "where": "Boğaziçi University", "courses": ["CMPE 150 Introduction to Computing", "EE 101 Orientation to EE", "EC 102 Macroeconomics", "MATH 102 Calculus II", "PHYS 121 Mechanics and Thermodynamics"]},
+    {"term": "Fall 2022", "where": "Boğaziçi University", "courses": ["CHEM 105 Fundamentals of Chemistry", "EC 101 Microeconomics", "HUM 101 Cultural Encounters I", "MATH 101 Calculus I", "MATH 201 Matrix Theory"]}
+  ]
+}

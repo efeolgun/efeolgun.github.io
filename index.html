@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Efe Olgun: academic portfolio</title>
+<meta name="description" content="Senior EE student working on wireless networks, signal processing and machine learning. Spring 2026 Erasmus+ exchange at CentraleSupélec. Expected graduation: January 2027.">
+<style>:root {
+  --bg: #fbfaf7; --fg: #1d1f21; --muted: #5d6368; --line: #e4e1da;
+  --card: #ffffff; --accent: #0c5f63; --accent-soft: #e3f0ef; --badge: #8a5a00; --badge-bg: #fdf0d5;
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #141617; --fg: #e8e6e1; --muted: #a0a5a9; --line: #2c3033;
+          --card: #1b1e20; --accent: #6cc3c1; --accent-soft: #1f3534; --badge: #f2c46b; --badge-bg: #3a2f17; }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 var(--sans); }
+a { color: var(--accent); }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+.top { border-bottom: 1px solid var(--line); padding: 64px 0 0; }
+.kicker { text-transform: uppercase; letter-spacing: .12em; font-size: 12px; color: var(--muted); margin: 0 0 8px; }
+h1 { font: 600 clamp(40px, 6vw, 60px)/1.05 var(--serif); margin: 0 0 8px; letter-spacing: -.01em; }
+.headline { font-size: 19px; margin: 0 0 16px; }
+.lede { max-width: 680px; color: var(--muted); margin: 0 0 16px; }
+.plinks a { margin-right: 18px; font-weight: 600; text-decoration: none; }
+.plinks a:hover { text-decoration: underline; }
+nav { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 36px; }
+nav a { color: var(--fg); text-decoration: none; padding: 12px 0; border-bottom: 2px solid transparent; font-size: 15px; }
+nav a:hover { border-color: var(--accent); }
+
+section { padding: 56px 0 8px; }
+h2 { font: 600 28px/1.2 var(--serif); margin: 0 0 24px; }
+h3 { font-size: 18px; line-height: 1.35; margin: 6px 0 2px; }
+.note { color: var(--muted); font-size: 14px; margin: -12px 0 24px; max-width: 700px; }
+
+.grid { display: grid; gap: 20px; }
+.grid.two { grid-template-columns: repeat(auto-fill, minmax(min(100%, 480px), 1fr)); }
+.grid.three { grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 22px;
+        display: flex; flex-direction: column; }
+.card[hidden] { display: none; }
+.card p { margin: 8px 0 0; font-size: 15px; }
+.card.featured { border-top: 3px solid var(--accent); }
+.thumb { width: calc(100% + 44px); margin: -22px -22px 14px; aspect-ratio: 16 / 7; object-fit: cover;
+         border-radius: 10px 10px 0 0; display: block; background: var(--line); }
+.meta { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13px; color: var(--muted); align-items: center; }
+.badge { background: var(--badge-bg); color: var(--badge); font-weight: 600; font-size: 12px; padding: 1px 8px; border-radius: 99px; }
+.course { color: var(--accent); font-size: 14px !important; font-weight: 600; margin-top: 0 !important; }
+.team { color: var(--muted); font-size: 13.5px !important; }
+.foot { margin-top: auto; padding-top: 14px; display: flex; justify-content: space-between; align-items: end; gap: 10px; flex-wrap: wrap; }
+.links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+.btn { font-size: 13.5px; font-weight: 600; text-decoration: none; padding: 5px 12px; border-radius: 6px;
+       background: var(--accent-soft); color: var(--accent); }
+.btn:hover { background: var(--accent); color: var(--bg); }
+.tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.tag { font-size: 12px; color: var(--muted); border: 1px solid var(--line); border-radius: 99px; padding: 0 8px; }
+
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.filter { font: inherit; font-size: 14px; border: 1px solid var(--line); background: var(--card); color: var(--fg);
+          padding: 5px 14px; border-radius: 99px; cursor: pointer; }
+.filter.on { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+
+.term, .xp { display: grid; grid-template-columns: 150px 1fr; gap: 20px; padding: 18px 0; border-top: 1px solid var(--line); }
+.when { font-weight: 600; font-size: 15px; }
+.where { margin: 0 0 8px; color: var(--muted); font-size: 14px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: 13.5px; padding: 3px 10px; border-radius: 6px; border: 1px solid var(--line); text-decoration: none; color: var(--fg); }
+.chip.has { border-color: var(--accent); color: var(--accent); font-weight: 600; }
+.chip.has:hover { background: var(--accent-soft); }
+.xp h3 { margin-top: 0; }
+.xp p { margin: 4px 0 0; font-size: 15px; }
+
+.card.wide { flex-direction: row; gap: 24px; }
+.side { width: 220px; height: 220px; object-fit: cover; border-radius: 8px; flex: none; background: var(--line); }
+.award { font-weight: 600; }
+
+footer { padding: 48px 24px 64px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); margin-top: 56px; }
+
+@media (max-width: 640px) {
+  .term, .xp { grid-template-columns: 1fr; gap: 6px; }
+  .card.wide { flex-direction: column; }
+  .side { width: 100%; height: 200px; }
+}
+@media print {
+  nav, .filters, script { display: none; }
+  .card { break-inside: avoid; }
+  body { background: #fff; color: #000; }
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <p class="kicker">Academic portfolio</p>
+    <h1>Efe Olgun</h1>
+    <p class="headline">Electrical &amp; Electronics Engineering, Boğaziçi University</p>
+    <p class="lede">Senior EE student working on wireless networks, signal processing and machine learning. Spring 2026 Erasmus+ exchange at CentraleSupélec. Expected graduation: January 2027.</p>
+    <p class="plinks"><a href="https://github.com/efeolgun">GitHub</a> <a href="https://www.linkedin.com/in/efe-olgun">LinkedIn</a></p>
+    <nav><a href="#featured">Featured</a><a href="#projects">All projects</a><a href="#coursework">Coursework</a><a href="#experience">Experience</a><a href="#earlier">Earlier work</a></nav>
+  </div>
+</header>
+<main class="wrap">
+  <section id="featured">
+    <h2>Featured</h2>
+    <div class="grid two">
+<article class="card featured" id="ee492-dirgnn-mro" data-areas="wireless ml">
+  
+  <div class="meta"><span>Fall 2026</span><span>Boğaziçi University</span><span class="badge">In progress</span></div>
+  <h3>Directed GNNs for Mobility Robustness Optimization</h3>
+  <p class="course">EE 492 Senior Design Project</p>
+  <p>A handover moves a phone from one cell to another, and each cell keeps a Cell Individual Offset (CIO) for each neighbor. This project tunes that directed CIO matrix in a closed loop: a simulator labels every handover as normal, too late, too early or ping-pong, and a directed graph neural network learns the failure risk of each cell pair. The first half rebuilt the simulator, channel and failure labels on the 3GPP documents. The rebuilt simulator reproduces the full MRO trade-off without tuning. GNN training runs in the second half of the semester.</p>
+  <p class="team">Individual project, principal investigator Prof. Mutlu Koca</p>
+  <div class="foot"><div class="tags"><span class="tag">Wireless &amp; networks</span><span class="tag">Machine learning</span></div></div>
+</article>
+<article class="card featured" id="cs-s8-dirgnn-cio" data-areas="wireless ml">
+  
+  <div class="meta"><span>Spring 2026</span><span>CentraleSupélec</span></div>
+  <h3>Directed GNNs for Cell Individual Offset tuning</h3>
+  <p class="course">S8 Project</p>
+  <p>An end-to-end loop that simulates users moving between base stations (Gymnasium mobile-env), extracts directed handover graphs, trains a directed GNN to predict risky handover edges, and updates the CIO matrix. The final version added independent failure labels, continuous severity metrics, weighted losses and numerical sanitization. In the large environment it modifies 48 of 156 directed links. This project became the starting point of my senior design project.</p>
+  <p class="team">Team of five (A. Seigle, E. Olgun, N. Tüysüz, A. Ammour, A. Choquel)</p>
+  <div class="foot"><div class="links"><a class="btn" href="https://efeolgun.github.io/coursework/2026-spring-CS-S8-dirgnn-cio/report.pdf">Report</a><a class="btn" href="https://github.com/adrienseigle/DirGNN-for-CIO-finetunning">Team code</a></div><div class="tags"><span class="tag">Wireless &amp; networks</span><span class="tag">Machine learning</span></div></div>
+</article>
+<article class="card featured" id="cs-st7-llm-telecom" data-areas="wireless ml">
+  
+  <div class="meta"><span>Spring 2026</span><span>CentraleSupélec</span></div>
+  <h3>LLMs for Telecoms: forecasting antenna traffic</h3>
+  <p class="course">ST7 Smart Cities project</p>
+  <p>Weekly traffic forecasting for 86 antenna sectors in a small French city, with attention to peak demand rather than the average. The pipeline adds stochastic data augmentation inspired by Interrupted Poisson Processes and compares the Chronos-2 foundation model, SARIMA and an LSTM trained with a quantile (pinball) loss. The Chronos-2 baseline reached an MAE of 4.13 Mbps.</p>
+  <p class="team">Team of seven</p>
+  <div class="foot"><div class="links"><a class="btn" href="https://efeolgun.github.io/coursework/2026-spring-CS-ST7-llm-for-telecoms/report.pdf">Report</a><a class="btn" href="https://efeolgun.github.io/coursework/2026-spring-CS-ST7-llm-for-telecoms/slides.pdf">Slides</a></div><div class="tags"><span class="tag">Wireless &amp; networks</span><span class="tag">Machine learning</span></div></div>
+</article>
+<article class="card featured" id="ee475-film-grain" data-areas="signal">
+  <img class="thumb" src="https://efeolgun.github.io/coursework/2025-fall-EE475-film-grain/figures/analysis_phantom.jpg" alt="" loading="lazy">
+  <div class="meta"><span>Fall 2025</span><span>Boğaziçi University</span></div>
+  <h3>Film grain across eras: spectral analysis and restoration</h3>
+  <p class="course">EE 475 Introduction to Image Processing</p>
+  <p>Noise in a 1925 silent film, a 1963 film and a 1984 VHS-era film has different physics: impulse dirt and flicker, Gaussian grain, and tape hiss with chroma noise. The project measures the power spectral density of each and builds era-specific restoration pipelines with temporal filtering and color-space decomposition, because textbook spatial filters failed on real footage.</p>
+  <p class="team">Individual</p>
+  <div class="foot"><div class="links"><a class="btn" href="https://efeolgun.github.io/coursework/2025-fall-EE475-film-grain/report.pdf">Report</a><a class="btn" href="https://efeolgun.github.io/coursework/2025-fall-EE475-film-grain/slides.pdf">Slides</a><a class="btn" href="https://github.com/efeolgun/coursework/tree/main/2025-fall-EE475-film-grain">Code</a></div><div class="tags"><span class="tag">Signal processing</span></div></div>
+</article></div>
+  </section>
+  <section id="projects">
+    <h2>All course projects</h2>
+    <div class="filters"><button class="filter on" data-area="all">All</button><button class="filter" data-area="wireless">Wireless &amp; networks</button><button class="filter" data-area="signal">Signal processing</button><button class="filter" data-area="ml">Machine learning</button><button class="filter" data-area="hardware">Digital &amp; hardware</button><button class="filter" data-area="other">Other</button></div>
+    <div class="grid three">
+<article class="card" id="cs-predictive-maintenance" data-areas="ml signal">
+  
+  <div class="meta"><span>Spring 2026</span><span>CentraleSupélec</span></div>
+  <h3>Robot predictive maintenance (Kaggle challenge)</h3>
+  <p class="course">Maintenance and Industry 4.0</p>
+  <p>Fault detection on a six-motor robot arm from temperature and load telemetry. The detector models the expected temperature of each motor, watches the residual, and uses hysteresis to avoid flickering alarms.</p>
+  <p class="team">Individual</p>
+  <div class="foot"><div class="links"><a class="btn" href="https://github.com/efeolgun/robot-predictive-maintenance">Code</a></div><div class="tags"><span class="tag">Machine learning</span><span class="tag">Signal processing</span></div></div>
+</article>
+<article class="card" id="cs-room-acoustics" data-areas="signal">
+  
+  <div class="meta"><span>Spring 2026</span><span>CentraleSupélec</span></div>
+  <h3>Measuring the acoustics of a reverberant room</h3>
+  <p class="course">Audio Signal Processing</p>
+  <p>Room impulse responses measured with a loudspeaker and a microphone in a corridor and a staircase, estimated by frequency-domain deconvolution. RT60, EDT, C50, C80 and the direct-to-reverberant ratio come from Schroeder integration. A synthetic impulse response with a known RT60 validates the estimator.</p>
+  <p class="team">Team of three</p>
+  <div class="foot"><div class="links"><a class="btn" href="https://efeolgun.github.io/coursework/2026-spring-CS-room-acoustics/slides.pdf">Slides</a><a class="btn" href="https://github.com/efeolgun/coursework/tree/main/2026-spring-CS-room-acoustics">Code</a></div><div class="tags"><span class="tag">Signal processing</span></div></div>
+</article>
+<article class="card" id="ee473-autotune" data-areas="signal">
+  
+  <div class="meta"><span>Fall 2025</span><span>Boğaziçi University</span></div>
+  <h3>Music pitch detection and auto-tuning</h3>
+  <p class="course">EE 473 Introduction to Digital Signal Processing</p>
+  <p>A closed-loop auto-tuner for monophonic vocals. It detects the fundamental frequency frame by frame with autocorrelation and with the cepstrum, maps it to the nearest note, and shifts the pitch with a phase vocoder. Autocorrelation with center clipping gave the most stable results on amateur recordings.</p>
+  <p class="team">With Mert Karahan. My part: autocorrelation with center clipping, and the user interface.</p>
+  <div class="foot"><div class="links"><a class="btn" href="https://efeolgun.github.io/coursework/2025-fall-EE473-pitch-detection-autotune/report.pdf">Report</a><a class="btn" href="https://efeolgun.github.io/coursework/2025-fall-EE473-pitch-detection-autotune/slides.pdf">Slides</a><a class="btn" href="https://github.com/efeolgun/coursework/tree/main/2025-fall-EE473-pitch-detection-autotune">Code</a></div><div class="tags"><span class="tag">Signal processing</span></div></div>
+</article>
+<article class="card" id="ee372-qpsk" data-areas="wireless signal">
+  
+  <div class="meta"><span>Spring 2025</span><span>Boğaziçi University</span></div>
+  <h3>QPSK detection with unequal priors: MD, ML and MAP</h3>
+  <p class="course">EE 372 Random Signals</p>
+  <p>A Monte Carlo simulation of 100,000 QPSK symbols over an AWGN channel, with unequal symbol priors. Minimum-distance, maximum-likelihood and maximum a posteriori detectors are compared by error against SNR, for equal and unequal noise variances.</p>
+  <p class="team">Individual</p>
+  <div class="foot"><div class="links"><a class="btn" href="https://efeolgun.github.io/coursework/2025-spring-EE372-qpsk-detection/report.pdf">Report</a><a class="btn" href="https://github.com/efeolgun/coursework/tree/main/2025-spring-EE372-qpsk-detection">Code</a></div><div class="tags"><span class="tag">Wireless &amp; networks</span><span class="tag">Signal processing</span></div></div>
+</article>
+<article class="card" id="ee342-gauss" data-areas="other">
+  
+  <div class="meta"><span>Spring 2025</span><span>Boğaziçi University</span></div>
+  <h3>Gaussian elimination: my code against AI-generated code</h3>
+  <p class="course">EE 342 Numerical Methods for EE</p>
+  <p>Gaussian elimination with partial pivoting in C++, written twice as the assignment asked: once by hand and once with an AI assistant. The report compares the two in structure, error handling and results.</p>
+  <p class="team">Individual</p>
+  <div class="foot"><div class="links"><a class="btn" href="https://efeolgun.github.io/coursework/2025-spring-EE342-gaussian-elimination/report.pdf">Report</a><a class="btn" href="https://github.com/efeolgun/coursework/tree/main/2025-spring-EE342-gaussian-elimination">Code</a></div><div class="tags"><span class="tag">Other</span></div></div>
+</article>
+<article class="card" id="ee304-space-string" data-areas="other">
+  
+  <div class="meta"><span>Spring 2025</span><span>Boğaziçi University</span></div>
+  <h3>The Space String: electromagnetic sound generation in space</h3>
+  <p class="course">EE 304 Energy Conversion</p>
+  <p>A design study for a device that lets an astronaut make basic sound signals with a magnetized steel wire and send them wirelessly to the ISS, using only a given parts list. It applies electromagnetic induction and electromechanical energy conversion.</p>
+  <p class="team">Individual</p>
+  <div class="foot"><div class="links"><a class="btn" href="https://efeolgun.github.io/coursework/2025-spring-EE304-space-string/report.pdf">Report</a></div><div class="tags"><span class="tag">Other</span></div></div>
+</article>
+<article class="card" id="ee371-am" data-areas="wireless signal">
+  
+  <div class="meta"><span>Fall 2024</span><span>Boğaziçi University</span></div>
+  <h3>AM modulation and demodulation in Python</h3>
+  <p class="course">EE 371 Communication Engineering</p>
+  <p>A 300 Hz tone is AM-modulated on a 1 MHz carrier, passed through an AWGN channel and demodulated. The second part recovers a voice message from a given received signal.</p>
+  <p class="team">Individual</p>
+  <div class="foot"><div class="links"><a class="btn" href="https://efeolgun.github.io/coursework/2024-fall-EE371-am-modulation/report.pdf">Report</a><a class="btn" href="https://github.com/efeolgun/coursework/tree/main/2024-fall-EE371-am-modulation">Code</a></div><div class="tags"><span class="tag">Wireless &amp; networks</span><span class="tag">Signal processing</span></div></div>
+</article>
+<article class="card" id="ee244-vhdl" data-areas="hardware">
+  
+  <div class="meta"><span>Spring 2024</span><span>Boğaziçi University</span></div>
+  <h3>VHDL labs on a Spartan-6 FPGA, up to a VGA driver</h3>
+  <p class="course">EE 244 Digital System Design</p>
+  <p>Lab designs in VHDL with Xilinx ISE: a seven-segment display driver, debouncers, counters and a shift register, and a VGA driver with sync and color generators.</p>
+  <p class="team">Lab work</p>
+  <div class="foot"><div class="links"><a class="btn" href="https://github.com/efeolgun/coursework/tree/main/2024-spring-EE244-vhdl-labs">Code</a></div><div class="tags"><span class="tag">Digital &amp; hardware</span></div></div>
+</article>
+<article class="card" id="ee243-gray-bcd" data-areas="hardware">
+  
+  <div class="meta"><span>Fall 2023</span><span>Boğaziçi University</span></div>
+  <h3>Gray code to BCD on three 7-segment displays</h3>
+  <p class="course">EE 243 Digital Systems</p>
+  <p>A combinational circuit that converts a 6-bit Gray code input to binary, then to two BCD digits with the double-dabble algorithm, and drives 7-segment displays. Designed from Karnaugh maps and simulated in Xilinx ISE 14.7.</p>
+  <p class="team">Individual</p>
+  <div class="foot"><div class="links"><a class="btn" href="https://efeolgun.github.io/coursework/2023-fall-EE243-gray-to-bcd/report.pdf">Report</a><a class="btn" href="https://github.com/efeolgun/coursework/tree/main/2023-fall-EE243-gray-to-bcd">Schematics</a></div><div class="tags"><span class="tag">Digital &amp; hardware</span></div></div>
+</article>
+<article class="card" id="ee101-pcb" data-areas="hardware">
+  
+  <div class="meta"><span>Spring 2023</span><span>Boğaziçi University</span></div>
+  <h3>First PCB: design, etching and soldering</h3>
+  <p class="course">EE 101 Orientation to EE</p>
+  <p>A diode-based power circuit with an LED indicator, drawn and simulated in OrCAD, then etched on a PCB and soldered by hand. The measured output was 4.9 V against 4.7 V in theory.</p>
+  <p class="team">With Yaman Yaltır</p>
+  <div class="foot"><div class="links"><a class="btn" href="https://efeolgun.github.io/coursework/2023-spring-EE101-pcb-project/report.pdf">Report</a><a class="btn" href="https://efeolgun.github.io/coursework/2023-spring-EE101-pcb-project/schematic.pdf">Schematic</a></div><div class="tags"><span class="tag">Digital &amp; hardware</span></div></div>
+</article>
+<article class="card" id="ee573-pattern" data-areas="ml">
+  
+  <div class="meta"><span>Fall 2026</span><span>Boğaziçi University</span><span class="badge">In progress</span></div>
+  <h3>Pattern recognition projects: PCA, Gaussian mixtures, Parzen windows</h3>
+  <p class="course">EE 573 Pattern Recognition (graduate)</p>
+  <p>Three projects on ViT descriptors of the Washington RGB-D object dataset: PCA and approximation error, Gaussian mixture classifiers trained with EM, and Parzen-window density estimation. Reports and code go online after grades are final.</p>
+  <p class="team">Individual</p>
+  <div class="foot"><div class="tags"><span class="tag">Machine learning</span></div></div>
+</article>
+<article class="card" id="ee583-deepjscc" data-areas="wireless ml">
+  
+  <div class="meta"><span>Fall 2026</span><span>Boğaziçi University</span><span class="badge">In progress</span></div>
+  <h3>SNR-adaptive deep joint source-channel coding</h3>
+  <p class="course">EE 583 Deep Learning (graduate)</p>
+  <p>A neural encoder and decoder that map images straight to channel symbols, so quality degrades gracefully with SNR instead of the cliff effect of separate compression and channel coding. The project makes one model adapt to the channel SNR.</p>
+  <p class="team">Individual</p>
+  <div class="foot"><div class="tags"><span class="tag">Wireless &amp; networks</span><span class="tag">Machine learning</span></div></div>
+</article></div>
+  </section>
+  <section id="coursework">
+    <h2>Coursework by semester</h2>
+    <p class="note">Linked courses have a project on this page. Homework solutions are not published, so that future students cannot copy them.</p>
+    
+<div class="term">
+  <div class="when">Fall 2026</div>
+  <div><p class="where">Boğaziçi University, 9th semester</p><div class="chips"><a class="chip has" href="#ee492-dirgnn-mro">EE 492 Senior Design Project</a><a class="chip has" href="#ee573-pattern">EE 573 Pattern Recognition</a><a class="chip has" href="#ee583-deepjscc">EE 583 Special Topics: Deep Learning</a><span class="chip">ESC 305 Global Climate Change</span></div></div>
+</div>
+<div class="term">
+  <div class="when">Spring 2026</div>
+  <div><p class="where">CentraleSupélec, Erasmus+ exchange (Feb to Jul 2026)</p><div class="chips"><a class="chip has" href="#cs-st7-llm-telecom">ST7 Smart Cities (with project)</a><a class="chip has" href="#cs-s8-dirgnn-cio">S8 Project</a><span class="chip">Optimization</span><span class="chip">Artificial Intelligence</span><a class="chip has" href="#cs-predictive-maintenance">Maintenance and Industry 4.0</a><span class="chip">Managing Disruptive Technological Innovation</span><a class="chip has" href="#cs-room-acoustics">Audio Signal Processing</a><span class="chip">French as a Foreign Language</span></div></div>
+</div>
+<div class="term">
+  <div class="when">Fall 2025</div>
+  <div><p class="where">Boğaziçi University</p><div class="chips"><a class="chip has" href="#ee473-autotune">EE 473 Introduction to Digital Signal Processing</a><a class="chip has" href="#ee475-film-grain">EE 475 Introduction to Image Processing</a><span class="chip">EE 477 Introduction to Digital Communications</span><span class="chip">PHYS 202 Physics IV</span></div></div>
+</div>
+<div class="term">
+  <div class="when">Summer 2025</div>
+  <div><p class="where">Internships: Turkcell, TÜBİTAK UME</p></div>
+</div>
+<div class="term">
+  <div class="when">Spring 2025</div>
+  <div><p class="where">Boğaziçi University</p><div class="chips"><a class="chip has" href="#ee304-space-string">EE 304 Energy Conversion</a><a class="chip has" href="#ee342-gauss">EE 342 Numerical Methods for EE</a><a class="chip has" href="#ee372-qpsk">EE 372 Random Signals</a><span class="chip">EE 450 Control Technology and Design</span><span class="chip">HTR 312 History of the Turkish Republic II</span></div></div>
+</div>
+<div class="term">
+  <div class="when">Fall 2024</div>
+  <div><p class="where">Boğaziçi University</p><div class="chips"><span class="chip">EE 333 Electronics I</span><span class="chip">EE 335 Electronics Laboratory I</span><span class="chip">EE 351 System Dynamics and Control</span><span class="chip">EE 363 Electromagnetic Field Theory</span><a class="chip has" href="#ee371-am">EE 371 Communication Engineering</a><span class="chip">HTR 311 History of the Turkish Republic I</span></div></div>
+</div>
+<div class="term">
+  <div class="when">Summer 2024</div>
+  <div><p class="where">Internship: ArVis Technology</p></div>
+</div>
+<div class="term">
+  <div class="when">Spring 2024</div>
+  <div><p class="where">Boğaziçi University</p><div class="chips"><span class="chip">EE 214 Probability for EE</span><span class="chip">EE 232 Semiconductors and Electronic Devices</span><a class="chip has" href="#ee244-vhdl">EE 244 Digital System Design</a><span class="chip">EE 272 Signals and Systems II</span><span class="chip">TK 222 Turkish II</span></div></div>
+</div>
+<div class="term">
+  <div class="when">Fall 2023</div>
+  <div><p class="where">Boğaziçi University</p><div class="chips"><span class="chip">EE 201 Electrical Circuits I</span><a class="chip has" href="#ee243-gray-bcd">EE 243 Digital Systems</a><span class="chip">EE 271 Signals and Systems I</span><span class="chip">MATH 202 Differential Equations</span><span class="chip">PHYS 201 Physics III</span><span class="chip">TK 221 Turkish I</span></div></div>
+</div>
+<div class="term">
+  <div class="when">Spring 2023</div>
+  <div><p class="where">Boğaziçi University</p><div class="chips"><span class="chip">CMPE 150 Introduction to Computing</span><a class="chip has" href="#ee101-pcb">EE 101 Orientation to EE</a><span class="chip">EC 102 Macroeconomics</span><span class="chip">MATH 102 Calculus II</span><span class="chip">PHYS 121 Mechanics and Thermodynamics</span></div></div>
+</div>
+<div class="term">
+  <div class="when">Fall 2022</div>
+  <div><p class="where">Boğaziçi University</p><div class="chips"><span class="chip">CHEM 105 Fundamentals of Chemistry</span><span class="chip">EC 101 Microeconomics</span><span class="chip">HUM 101 Cultural Encounters I</span><span class="chip">MATH 101 Calculus I</span><span class="chip">MATH 201 Matrix Theory</span></div></div>
+</div>
+  </section>
+  <section id="experience">
+    <h2>Experience</h2>
+    
+<div class="xp">
+  <div class="when">Aug 2025 to Sep 2025</div>
+  <div><h3>TÜBİTAK UME (National Metrology Institute)</h3><p class="course">Research Intern, Voltage Laboratory</p><p>Worked on the Josephson arbitrary waveform synthesizer (JAWS) and FPGA efforts. Wrote MATLAB code that compares 2nd-order and 8th-order delta-sigma modulators by their in-band noise floor.</p></div>
+</div>
+<div class="xp">
+  <div class="when">Jul 2025 to Aug 2025</div>
+  <div><h3>Turkcell</h3><p class="course">Radio Network Planning Intern, Europe West</p><p>Trainings on network technologies and the 5G air interface. Studied KPI analysis, coverage and capacity analysis, and indoor planning, and wrote a Python tool that turns KPI and complaint data into a report.</p></div>
+</div>
+<div class="xp">
+  <div class="when">Jul 2024 to Aug 2024</div>
+  <div><h3>ArVis Technology</h3><p class="course">AI R&amp;D Intern</p><p>Team of five on multimodal deepfake detection. I built the micro-expression module: face crop, optical flow and a ResNet-18 classifier in a live desktop app. 3rd of 19 projects at Demo Day.</p><div class="links"><a class="btn" href="https://github.com/efeolgun/coursework/tree/main/internships/2024-summer-arvis-deepfake-microexpression">Code and write-up</a></div></div>
+</div>
+  </section>
+  <section id="earlier">
+    <h2>Earlier work</h2>
+    
+<article class="card wide">
+  <img class="side" src="https://efeolgun.github.io/coursework/2020-highschool-tubitak-superhydrophobic-sponge/figures/karisim.png" alt="Microplastic and water mixture in a beaker" loading="lazy">
+  <div>
+    <div class="meta"><span>2019 to 2020</span><span>Istanbul Fuat Sezgin Science and Art Center (BİLSEM)</span></div>
+    <h3>Superhydrophobic sponge for removing microplastics from water</h3>
+    <p class="award">TÜBİTAK 2204 High School Research Projects: 1st place in Chemistry, Istanbul-Asia region (March 2020). Encouragement Award in Chemistry, 51st national final (July 2020).</p>
+    <p>Melamine and PVA sponges treated with octadecylamine and activated carbon to make them superhydrophobic and oil-attracting. Microplastics stick to oil, so the sponge can collect them from water. A controlled experiment found that melamine with octadecylamine absorbed microplastics best.</p>
+    <p class="team">With İpek Pervaz, advisor İsmail Ateş</p>
+    <div class="links"><a class="btn" href="https://efeolgun.github.io/coursework/2020-highschool-tubitak-superhydrophobic-sponge/project-summary-tr.pdf">Project summary (Turkish)</a></div>
+  </div>
+</article>
+  </section>
+</main>
+<footer class="wrap">
+  <p>Reports, slides and code: <a href="https://github.com/efeolgun/coursework">github.com/efeolgun/coursework</a>. Updated November 2026.</p>
+</footer>
+<script>
+document.querySelectorAll('.filter').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('.filter').forEach(x => x.classList.toggle('on', x === b));
+  const a = b.dataset.area;
+  document.querySelectorAll('#projects .card').forEach(c => {
+    c.hidden = !(a === 'all' || c.dataset.areas.split(' ').includes(a));
+  });
+}));
+</script>
+</body>
+</html>
