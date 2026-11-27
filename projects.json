@@ -2,8 +2,16 @@
   "person": {
     "name": "Efe Olgun",
     "headline": "Electrical & Electronics Engineering, Boğaziçi University",
-    "summary": "Senior Electrical & Electronics Engineering student at Boğaziçi University, working on wireless networks, signal processing and machine learning.",
+    "summary": "Senior Electrical & Electronics Engineering student at Boğaziçi University, working on wireless communications, signal processing and machine learning.",
     "facts": [
+      {
+        "label": "Applying for",
+        "text": "MSc, Fall 2027: wireless communications, signal processing, machine learning, electrical engineering"
+      },
+      {
+        "label": "GRE",
+        "text": "Quantitative 170, Verbal 162"
+      },
       {
         "label": "Exchange",
         "text": "Erasmus+ at CentraleSupélec, Spring 2026"
@@ -14,6 +22,10 @@
       }
     ],
     "links": [
+      {
+        "label": "Résumé",
+        "url": "resume.pdf"
+      },
       {
         "label": "GitHub",
         "url": "https://github.com/efeolgun"
@@ -60,7 +72,7 @@
       "featured": true,
       "title": "Directed GNNs for Cell Individual Offset tuning",
       "oneliner": "An end-to-end loop from mobility simulation to a directed GNN that predicts risky handover edges and updates the CIO matrix. In the large environment it modifies 48 of 156 directed links.",
-      "course": "S8 research project, CentraleSupélec",
+      "course": "S8 research project (IoT track), CentraleSupélec",
       "term": "Spring 2026",
       "school": "CentraleSupélec",
       "team": "Team of five (A. Seigle, E. Olgun, N. Tüysüz, A. Ammour, A. Choquel)",
@@ -86,7 +98,7 @@
       "featured": true,
       "title": "LLMs for Telecoms: forecasting antenna traffic",
       "oneliner": "Weekly traffic forecasts for 86 antenna sectors, comparing Chronos-2, SARIMA and a quantile-loss LSTM. The Chronos-2 baseline reached an MAE of 4.13 Mbps.",
-      "course": "ST7 Smart Cities team project, CentraleSupélec",
+      "course": "ST7 Smart Cities project, CentraleSupélec",
       "term": "Spring 2026",
       "school": "CentraleSupélec",
       "team": "Team of seven",
@@ -373,9 +385,8 @@
     },
     {
       "id": "ee573-pattern",
-      "status": "in progress",
-      "title": "Pattern recognition projects: PCA, Gaussian mixtures, Parzen windows",
-      "oneliner": "Three projects on ViT descriptors of the Washington RGB-D object dataset: PCA, Gaussian mixture classifiers trained with EM, and Parzen-window density estimation.",
+      "title": "Pattern recognition: PCA, Fisher discriminant, Gaussian mixtures and Parzen windows",
+      "oneliner": "Three MATLAB projects on 1024-dimensional image descriptors. The third shows why the textbook Parzen window width rule does not converge in 74 dimensions.",
       "course": "EE 573 Pattern Recognition (graduate course)",
       "term": "Fall 2026",
       "school": "Boğaziçi University",
@@ -383,8 +394,26 @@
       "areas": [
         "ml"
       ],
-      "summary": "Three projects on ViT descriptors of the Washington RGB-D object dataset: PCA and approximation error, Gaussian mixture classifiers trained with EM, and Parzen-window density estimation. Reports and code go online after grades are final.",
-      "links": []
+      "summary": "Project 1: PCA approximation error and the Fisher linear discriminant on 50 classes of descriptors. Project 2: Gaussian and Gaussian-mixture classifiers trained with EM on five Washington RGB-D object classes, with k-means initialization that reached a higher likelihood than random starts in every class. Project 3: Parzen window and k-nearest-neighbor classifiers on the same data, with a test that shows the estimates do not converge when the window shrinks as h1/sqrt(n) in 74 dimensions.",
+      "links": [
+        {
+          "label": "Project 1",
+          "file": "project1/report.pdf"
+        },
+        {
+          "label": "Project 2",
+          "file": "project2/report.pdf"
+        },
+        {
+          "label": "Project 3",
+          "file": "project3/report.pdf"
+        },
+        {
+          "label": "Code",
+          "code": true
+        }
+      ],
+      "folder": "2026-fall-EE573-pattern-recognition"
     },
     {
       "id": "ee583-deepjscc",
@@ -399,11 +428,23 @@
         "wireless",
         "ml"
       ],
-      "summary": "A neural encoder and decoder that map images straight to channel symbols, so quality degrades gracefully with SNR instead of the cliff effect of separate compression and channel coding. The project makes one model adapt to the channel SNR.",
-      "links": []
+      "summary": "Conventional systems compress an image and then protect it with a channel code designed for one SNR, so the image is lost below that SNR (the cliff effect). This project reimplements deep joint source-channel coding (DeepJSCC) in PyTorch and adds the SNR-adaptive attention modules of ADJSCC, so that one network works over a range of SNRs. Final report due December 2026.",
+      "links": [
+        {
+          "label": "Proposal",
+          "file": "proposal.pdf"
+        }
+      ],
+      "folder": "2026-fall-EE583-deepjscc"
     }
   ],
   "experience": [
+    {
+      "org": "Boğaziçi University, TÜBİTAK 1001 project 126E365",
+      "role": "Undergraduate Research Scholar",
+      "term": "Nov 2026 to present",
+      "summary": "Project: Age of Secure Information in Next-Generation Communication Systems (Yeni Nesil Haberleşme Sistemlerinde Güvenli Bilgi Yaşı). Principal investigator: Prof. Dr. Mutlu Koca. The project runs from October 2026 to April 2029."
+    },
     {
       "org": "TÜBİTAK UME (National Metrology Institute)",
       "role": "Research Intern, Voltage Laboratory",
@@ -414,7 +455,7 @@
       "org": "Turkcell",
       "role": "Radio Network Planning Intern, Europe West",
       "term": "Jul 2025 to Aug 2025",
-      "summary": "Completed training on network technologies and the 5G air interface. Studied KPI analysis, coverage and capacity analysis, and indoor planning, and wrote a Python tool that turns KPI and complaint data into a report."
+      "summary": "Took part in the network technology and 5G air interface trainings given to the department's radio network engineers. Studied KPI analysis, coverage and capacity analysis, and indoor planning, and wrote a Python tool that turns KPI and complaint data into a report."
     },
     {
       "org": "ArVis Technology",
@@ -463,13 +504,13 @@
       "term": "Spring 2026",
       "where": "CentraleSupélec, Erasmus+ exchange (Feb to Jul 2026)",
       "courses": [
-        "ST7 Smart Cities (with project)",
-        "S8 Project",
-        "Optimization",
-        "Artificial Intelligence",
+        "ST7 Smart Cities project",
+        "ST7 Game Theory for Smart Cities",
+        "S8 Project (IoT track)",
         "Maintenance and Industry 4.0",
-        "Managing Disruptive Technological Innovation",
         "Audio Signal Processing",
+        "Economics of Decarbonised Transport Systems",
+        "Technological Innovation Management",
         "French as a Foreign Language"
       ]
     },

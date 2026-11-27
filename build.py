@@ -121,7 +121,7 @@ def coursework():
     by_course = {}
     for p in DATA["projects"]:
         by_course[course_key(p["course"])] = p["id"]
-    alias = {"st7 smart cities (with project)": "cs-st7-llm-telecom", "s8 project": "cs-s8-dirgnn-cio",
+    alias = {"st7 smart cities project": "cs-st7-llm-telecom", "s8 project (iot track)": "cs-s8-dirgnn-cio",
              "maintenance and industry 4.0": "cs-predictive-maintenance",
              "audio signal processing": "cs-room-acoustics"}
     rows = []
