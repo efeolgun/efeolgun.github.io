@@ -154,7 +154,7 @@ selected_papers: false
 
 <ul class="efe-featured">{''.join(featured)}</ul>
 
-<p><a href="{{{{ '/projects/' | relative_url }}}}">All {len(order)} projects</a>, grouped by area. <a href="{{{{ '/coursework/' | relative_url }}}}">All coursework</a>, by term.</p>
+<p><a href="{{{{ '/projects/' | relative_url }}}}">All {len(order)} projects</a>, grouped by area. <a href="{{{{ '/courses/' | relative_url }}}}">All courses</a>, by term.</p>
 
 ## earlier work
 
@@ -202,11 +202,11 @@ for t in D["terms"]:
         + "</div>"
     )
 write(
-    "_pages/coursework.md",
+    "_pages/courses.md",
     f"""---
 layout: page
-title: coursework
-permalink: /coursework/
+title: courses
+permalink: /courses/
 description: Courses by term, newest first.
 nav: true
 nav_order: 3

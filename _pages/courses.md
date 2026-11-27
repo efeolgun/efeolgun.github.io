@@ -1,7 +1,7 @@
 ---
 layout: page
-title: coursework
-permalink: /coursework/
+title: courses
+permalink: /courses/
 description: Courses by term, newest first.
 nav: true
 nav_order: 3
