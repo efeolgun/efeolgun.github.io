@@ -14,7 +14,7 @@
       },
       {
         "label": "Exchange",
-        "text": "Erasmus+ at CentraleSupélec, Spring 2026"
+        "text": "Erasmus+ at CentraleSupélec, Spring 2026, with an Erasmus+ grant"
       },
       {
         "label": "Graduation",
@@ -55,7 +55,7 @@
       "featured": true,
       "status": "in progress",
       "title": "Directed GNNs for mobility robustness optimization",
-      "oneliner": "Closed-loop tuning of the directed Cell Individual Offset matrix with a directed GNN. The simulator, rebuilt on the 3GPP documents, already reproduces the full MRO trade-off without tuning.",
+      "oneliner": "Goal: tune the directed Cell Individual Offset matrix in a closed loop with a directed GNN. Done so far: the simulator, channel and failure labels rebuilt from the 3GPP documents, and a first rule-based closed loop.",
       "course": "EE 492 Senior Design Project",
       "term": "Fall 2026",
       "school": "Boğaziçi University",
@@ -64,23 +64,23 @@
         "wireless",
         "ml"
       ],
-      "summary": "A handover moves a phone from one cell to another, and each cell keeps a Cell Individual Offset (CIO) for each neighbor. This project tunes that directed CIO matrix in a closed loop: a simulator labels every handover as normal, too late, too early or ping-pong, and a directed graph neural network learns the failure risk of each cell pair. The first half rebuilt the simulator, channel and failure labels on the 3GPP documents. The rebuilt simulator reproduces the full MRO trade-off without tuning. GNN training runs in the second half of the semester.",
+      "summary": "A handover moves a phone from one cell to another, and each cell keeps a Cell Individual Offset (CIO) for each neighbor. The goal of this project is to tune that directed CIO matrix in a closed loop, with a directed graph neural network (GNN) that learns the failure risk of each cell pair. Done so far: the simulator, the channel model and the handover failure labels (too late, too early, ping-pong) rebuilt from the 3GPP documents, with unit tests, and a first rule-based closed loop. Next: fading corrections to the channel model, then the GNN. GNN training runs in the second half of the semester.",
       "links": []
     },
     {
       "id": "cs-s8-dirgnn-cio",
       "featured": true,
       "title": "Directed GNNs for Cell Individual Offset tuning",
-      "oneliner": "An end-to-end loop from mobility simulation to a directed GNN that predicts risky handover edges and updates the CIO matrix. In the large environment it modifies 48 of 156 directed links.",
+      "oneliner": "An end-to-end loop from mobility simulation to a directed GNN that predicts risky handover edges and updates the CIO matrix.",
       "course": "S8 research project (IoT track), CentraleSupélec",
       "term": "Spring 2026",
       "school": "CentraleSupélec",
-      "team": "Team of five (A. Seigle, E. Olgun, N. Tüysüz, A. Ammour, A. Choquel)",
+      "team": "Team of five (Adrien, Efe, Nilsu, Adam, Armand)",
       "areas": [
         "wireless",
         "ml"
       ],
-      "summary": "An end-to-end loop that simulates users moving between base stations (Gymnasium mobile-env), extracts directed handover graphs, trains a directed GNN to predict risky handover edges, and updates the CIO matrix. The final version added independent failure labels, continuous severity metrics, weighted losses and numerical sanitization. In the large environment it modifies 48 of 156 directed links. This project became the starting point of my senior design project.",
+      "summary": "An end-to-end loop that simulates users moving between base stations (Gymnasium mobile-env), extracts directed handover graphs, trains a directed GNN to predict risky handover edges, and updates the CIO matrix. The final version added independent failure labels, continuous severity metrics, weighted losses and numerical sanitization. My part was the simulation environment. A later re-run in EE 492 found that the simulator counted connect and disconnect actions as handovers, so the senior design project rebuilt it. This project became the starting point of my senior design project.",
       "folder": "2026-spring-CS-S8-dirgnn-cio",
       "links": [
         {
@@ -122,11 +122,11 @@
     {
       "id": "cs-predictive-maintenance",
       "title": "Robot predictive maintenance (Kaggle challenge)",
-      "oneliner": "Fault detection for a six-motor robot arm: model each motor's expected temperature, watch the residual, and use hysteresis to avoid flickering alarms.",
+      "oneliner": "Fault detection for a six-motor robot arm: model each motor's expected temperature, watch the residual, and use hysteresis to avoid flickering alarms. 1st place in the class challenge, with the highest score.",
       "course": "Maintenance and Industry 4.0",
       "term": "Spring 2026",
       "school": "CentraleSupélec",
-      "team": "Individual",
+      "team": "With Pedro",
       "areas": [
         "ml",
         "signal"
@@ -142,21 +142,17 @@
     {
       "id": "cs-room-acoustics",
       "title": "Measuring the acoustics of a reverberant room",
-      "oneliner": "Room impulse responses measured in a corridor and a staircase, with RT60, EDT, C50, C80 and the direct-to-reverberant ratio. A synthetic response with a known RT60 validates the estimator.",
+      "oneliner": "Acoustic parameters of a corridor and a staircase from measured room impulse responses. My part was the synthetic check of the estimator.",
       "course": "Audio Signal Processing",
       "term": "Spring 2026",
       "school": "CentraleSupélec",
-      "team": "Team of three",
+      "team": "Team of three (Harshit, Efe, Nevanth)",
       "areas": [
         "signal"
       ],
-      "summary": "Room impulse responses measured with a loudspeaker and a microphone in a corridor and a staircase, estimated by frequency-domain deconvolution. RT60, EDT, C50, C80 and the direct-to-reverberant ratio come from Schroeder integration. A synthetic impulse response with a known RT60 validates the estimator.",
+      "summary": "A team of three (Harshit, Efe, Nevanth) measured room impulse responses in a corridor and a staircase. The excitation was white noise, and the response was estimated by cross-correlation. RT60 and EDT come from Schroeder integration, and C50, C80 and the direct-to-reverberant ratio (DRR) are energy ratios. My part was the synthetic check: for a synthetic response with a known RT60 of 0.80 s, the estimator returns RT60 0.80 s and EDT 0.80 s. The recordings were dominated by background noise (correlation 0.028 and 0.006, about 6 dB of decay), so the measured RT60 and EDT do not describe the rooms.",
       "folder": "2026-spring-CS-room-acoustics",
       "links": [
-        {
-          "label": "Slides",
-          "file": "slides.pdf"
-        },
         {
           "label": "Code",
           "code": true
@@ -200,7 +196,7 @@
       "course": "EE 473 Introduction to Digital Signal Processing",
       "term": "Fall 2025",
       "school": "Boğaziçi University",
-      "team": "With Mert Karahan. My part: autocorrelation with center clipping, and the user interface.",
+      "team": "With Mert. My part: autocorrelation with center clipping, and the user interface.",
       "areas": [
         "signal"
       ],
@@ -316,6 +312,26 @@
       ]
     },
     {
+      "id": "ee244-traffic-light",
+      "title": "Traffic light controller with a VGA animation on an FPGA",
+      "oneliner": "Car and pedestrian traffic lights in sync on a Spartan-6 FPGA: a VGA animation of cars and pedestrians that follow their lights, and a countdown on the 7-segment displays.",
+      "course": "EE 244 Digital System Design (final project)",
+      "term": "Spring 2024",
+      "school": "Boğaziçi University",
+      "team": "With Yaman",
+      "areas": [
+        "hardware"
+      ],
+      "summary": "A state machine runs a car light and a pedestrian light in sync (15 s green and red, 5 s yellow). A 640x480 VGA controller draws the lights, the road and a crosswalk, and moves three cars and two pedestrians according to their lights. Four frequency dividers set the pixel clock, the countdown and the two movement speeds, and the 7-segment displays show the countdown. Behavioral VHDL in Xilinx ISE on a Nexys 3 board.",
+      "links": [
+        {
+          "label": "Report",
+          "file": "report.pdf"
+        }
+      ],
+      "folder": "2024-spring-EE244-traffic-light-controller"
+    },
+    {
       "id": "ee244-vhdl",
       "title": "VHDL labs on a Spartan-6 FPGA, up to a VGA driver",
       "oneliner": "VHDL lab designs in Xilinx ISE: seven-segment driver, debouncers, counters, a shift register, and a VGA driver with sync and color generators.",
@@ -366,7 +382,7 @@
       "course": "EE 101 Orientation to EE",
       "term": "Spring 2023",
       "school": "Boğaziçi University",
-      "team": "With Yaman Yaltır",
+      "team": "With Yaman",
       "areas": [
         "hardware"
       ],
@@ -419,7 +435,7 @@
       "id": "ee583-deepjscc",
       "status": "in progress",
       "title": "SNR-adaptive deep joint source-channel coding",
-      "oneliner": "A neural encoder and decoder that map images straight to channel symbols, with one model that adapts to the channel SNR so quality degrades gracefully.",
+      "oneliner": "Goal: one neural encoder and decoder that map images straight to channel symbols and adapt to the channel SNR. Final report due December 2026.",
       "course": "EE 583 Special Topics: Deep Learning (graduate course)",
       "term": "Fall 2026",
       "school": "Boğaziçi University",
@@ -428,7 +444,7 @@
         "wireless",
         "ml"
       ],
-      "summary": "Conventional systems compress an image and then protect it with a channel code designed for one SNR, so the image is lost below that SNR (the cliff effect). This project reimplements deep joint source-channel coding (DeepJSCC) in PyTorch and adds the SNR-adaptive attention modules of ADJSCC, so that one network works over a range of SNRs. Final report due December 2026.",
+      "summary": "Conventional systems compress an image and then protect it with a channel code designed for one SNR, so the image is lost below that SNR (the cliff effect). The plan is to reimplement deep joint source-channel coding (DeepJSCC) in PyTorch and to add the SNR-adaptive attention modules of ADJSCC, so that one network works over a range of SNRs. Final report due December 2026.",
       "links": [
         {
           "label": "Proposal",
@@ -441,9 +457,9 @@
   "experience": [
     {
       "org": "Boğaziçi University, TÜBİTAK 1001 project 126E365",
-      "role": "Undergraduate Research Scholar",
+      "role": "Undergraduate Research Scholar (TÜBİTAK scholarship)",
       "term": "Nov 2026 to present",
-      "summary": "Project: Age of Secure Information in Next-Generation Communication Systems (Yeni Nesil Haberleşme Sistemlerinde Güvenli Bilgi Yaşı). Principal investigator: Prof. Dr. Mutlu Koca. The project runs from October 2026 to April 2029."
+      "summary": "Project: Age of Secure Information in Next-Generation Communication Systems (Yeni Nesil Haberleşme Sistemlerinde Güvenli Bilgi Yaşı). Principal investigator: Prof. Mutlu Koca."
     },
     {
       "org": "TÜBİTAK UME (National Metrology Institute)",
@@ -455,7 +471,7 @@
       "org": "Turkcell",
       "role": "Radio Network Planning Intern, Europe West",
       "term": "Jul 2025 to Aug 2025",
-      "summary": "Took part in the network technology and 5G air interface trainings given to the department's radio network engineers. Studied KPI analysis, coverage and capacity analysis, and indoor planning, and wrote a Python tool that turns KPI and complaint data into a report."
+      "summary": "Took part in the network technology and 5G air interface trainings given to the department's engineers. Studied KPI analysis, coverage and capacity analysis, and indoor planning, and wrote a Python tool that turns KPI and complaint data into a report."
     },
     {
       "org": "ArVis Technology",
@@ -476,15 +492,15 @@
       "title": "Superhydrophobic sponge for removing microplastics from water",
       "term": "2019 to 2020",
       "school": "Istanbul Fuat Sezgin Science and Art Center (BİLSEM)",
-      "team": "With İpek Pervaz, advisor İsmail Ateş",
+      "team": "With İpek, advisor İsmail Ateş",
       "awards": "TÜBİTAK 2204 High School Research Projects, Chemistry (2020): 1st place in the Istanbul-Asia region, then 4th place nationally and the Special Jury Award at the national final.",
       "summary": "Melamine and PVA sponges treated with octadecylamine and activated carbon to make them superhydrophobic and oil-attracting. Microplastics stick to oil, so the sponge can collect them from water. A controlled experiment found that melamine with octadecylamine absorbed microplastics best.",
       "image": "figures/karisim.png",
       "folder": "2020-highschool-tubitak-superhydrophobic-sponge",
       "links": [
         {
-          "label": "Project summary (Turkish)",
-          "file": "project-summary-tr.pdf"
+          "label": "Report (Turkish)",
+          "file": "project-report-tr.pdf"
         }
       ]
     }
